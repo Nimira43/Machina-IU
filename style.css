@@ -29,6 +29,10 @@ body {
   color: var(--dark);
 }
 
+.fw-h3 {
+  font-weight: 300 !important;
+}
+
 .btn-selected{
   border: 2px dotted var(--grey-d);
   border-radius: 50%;
