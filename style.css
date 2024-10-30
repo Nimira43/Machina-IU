@@ -17,10 +17,25 @@
   --sky-light: #ade0f4;
 }
 
+body {
+  background-color: var(--grey-l);
+}
+
 .logo {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 200;
   font-size: 18px;
   letter-spacing: 2px;
   color: var(--dark);
+}
+
+.btn-selected{
+  border: 2px dotted var(--grey-d);
+  border-radius: 50%;
+  padding: 8px;
+  transition: transform 0.3s
+;}
+
+.btn-selected:hover {
+  transform: scale(1);
 }
