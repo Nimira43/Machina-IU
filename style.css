@@ -33,6 +33,13 @@ body {
   font-weight: 300 !important;
 }
 
+.brd-dk {
+  border: 2px solid var(--dark);
+}
+.brd-lg {
+  border: 2px solid var(--light);
+}
+
 .btn-selected{
   border: 2px dotted var(--grey-d);
   border-radius: 50%;
