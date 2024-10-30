@@ -17,10 +17,6 @@
   --sky-light: #ade0f4;
 }
 
-body {
-  background-color: var(--sky-light);
-}
-
 .logo {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 200;
