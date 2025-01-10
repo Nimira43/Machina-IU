@@ -41,11 +41,17 @@ const handleColourButtonClick = (event) => {
 const handleWheelButtonClick = (event) => {
   if (event.target.tagName === 'BUTTON') {
     const buttons = document.querySelectorAll('#wheel-buttons button')
-    buttons.forEach((btn) => btn.classList)
+    buttons.forEach((btn) => { 
+      btn.classList.remove('bg-gray-800') 
+      btn.classList.remove('text-white') 
+    })
+    event.target.classList.add('bg-gray-800') 
+    event.target.classList.add('text-white')
   }
 }
 
 window.addEventListener('scroll', () => requestAnimationFrame(handleScroll))
 exteriorColourSection.addEventListener('click', handleColourButtonClick)
 interiorColourSection.addEventListener('click', handleColourButtonClick)
+wheelsButtonsSection.addEventListener('click', handleWheelButtonClick)
 
