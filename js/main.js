@@ -2,6 +2,9 @@ import { topBar, exteriorImage, interiorImage, exteriorColourSection, interiorCo
 
 import { selectedOptions, pricing } from './objects'
 
+import { exteriorImages, interiorImages } from './imageMapping'
+
+
 const basePrice = 57835
 let currentPrice = basePrice
 let selectedColour = 'Stealth Grey' 
