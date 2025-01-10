@@ -14,11 +14,16 @@ const handleScroll = () => {
   topBar.classList.toggle('hidden-bar', !atTop)
 }
 
-const handleColourButtonClick = (click) => {
+const handleColourButtonClick = (event) => {
   let button
-
+  if (event.target.tagName === 'IMG') {
+    button = event.target.closest('button')
+  } else if (event.target.tagName === 'BUTTON') {
+    button = event.target
+  }
 }
 
 window.addEventListener('scroll', () => requestAnimationFrame(handleScroll))
 exteriorColourSection.addEventListener('click', handleColourButtonClick)
+interiorColourSection.addEventListener('click', handleColourButtonClick)
 
