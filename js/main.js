@@ -21,6 +21,11 @@ const handleColourButtonClick = (event) => {
   } else if (event.target.tagName === 'BUTTON') {
     button = event.target
   }
+  if (button) {
+    const buttons = event.currentTarget.querySelectorAll('button')
+    buttons.forEach((btn) => btn.classList.remove('btn-selected'))
+    button.classList.add('btn-selected')
+  }
 }
 
 window.addEventListener('scroll', () => requestAnimationFrame(handleScroll))
