@@ -1,10 +1,10 @@
-const selectedOptions = {
+export const selectedOptions = {
   'Enhanced Wheels': false,
   'Enhanced Performance': false,
   'Self-Driving': false,
 }
 
-const pricing = {
+export const pricing = {
   'Enhanced Wheels': 2600,
   'Enhanced Performance': 5200,
   'Self-Driving': 9500,
