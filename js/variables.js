@@ -9,3 +9,4 @@ export const fullSelfDrivingCheckbox = document.querySelector('#full-self-drivin
 export const totalPriceElement = document.querySelector('#total-price')
 export const downPaymentElement = document.querySelector('#down-payment')
 export const monthlyPaymentElement = document.querySelector('#monthly-payment')
+export const accessoryCheckboxes = document.querySelectorAll('.accessory-form-checkbox')
