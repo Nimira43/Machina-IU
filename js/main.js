@@ -38,17 +38,49 @@ const handleColourButtonClick = (event) => {
   }
 }
 
+// Wheel Buttons
+
+// Solution A
+
+// const handleWheelButtonClick = (event) => {
+//   if (event.target.tagName === 'BUTTON') {
+//     const buttons = document.querySelectorAll('#wheel-buttons button')
+//     buttons.forEach((btn) => { 
+//       btn.classList.remove('bg-gray-800') 
+//       btn.classList.remove('text-white') 
+//     })
+//     event.target.classList.add('bg-gray-800') 
+//     event.target.classList.add('text-white')
+//   }
+// }
+
+// Solution B
+
 const handleWheelButtonClick = (event) => {
   if (event.target.tagName === 'BUTTON') {
     const buttons = document.querySelectorAll('#wheel-buttons button')
-    buttons.forEach((btn) => { 
-      btn.classList.remove('bg-gray-800') 
-      btn.classList.remove('text-white') 
+    buttons.forEach((btn) => {
+      btn.classList.remove(
+        'selected', 
+        'bg-gray-800', 'text-white', 'hover:bg-gray-900', 'hover:text-white'
+      )
+      btn.classList.add(
+        'unselected', 
+        'bg-gray-200', 'text-gray-900', 'hover:bg-gray-600')
     })
-    event.target.classList.add('bg-gray-800') 
-    event.target.classList.add('text-white')
+    event.target.classList.remove(
+      'unselected', 
+      'bg-gray-200', 'text-gray-900', 'hover:bg-gray-600'
+    )
+    event.target.classList.add(
+      'selected', 
+      'bg-gray-800', 'text-white', 'hover:bg-gray-900', 'hover:text-white'
+    )
   }
 }
+
+wheelsButtonsSection.addEventListener('click', handleWheelButtonClick);
+
 
 window.addEventListener('scroll', () => requestAnimationFrame(handleScroll))
 exteriorColourSection.addEventListener('click', handleColourButtonClick)
