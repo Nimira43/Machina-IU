@@ -25,9 +25,15 @@ const handleColourButtonClick = (event) => {
     const buttons = event.currentTarget.querySelectorAll('button')
     buttons.forEach((btn) => btn.classList.remove('btn-selected'))
     button.classList.add('btn-selected') 
+    
     if (event.currentTarget === exteriorColourSection) {
       const colour = button.querySelector('img').alt
       exteriorImage.src = exteriorImages[colour]
+    }
+    
+    if (event.currentTarget === interiorColourSection) {
+      const colour = button.querySelector('img').alt
+      interiorImage.src = interiorImages[colour]
     }
   }
 }
