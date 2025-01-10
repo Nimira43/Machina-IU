@@ -1,8 +1,8 @@
-import { topBar, exteriorImage, interiorImage, exteriorColourSection, interiorColourSection, wheelsButtonsSection, performanceBtn, fullSelfDrivingCheckbox,totalPriceElement, downPaymentElement, monthlyPaymentElement, accessoryCheckboxes } from './variables'
+import { topBar, exteriorImage, interiorImage, exteriorColourSection, interiorColourSection, wheelsButtonsSection, performanceBtn, fullSelfDrivingCheckbox,totalPriceElement, downPaymentElement, monthlyPaymentElement, accessoryCheckboxes } from './variables.js'
 
-import { selectedOptions, pricing } from './objects'
+import { selectedOptions, pricing } from './objects.js'
 
-import { exteriorImages, interiorImages } from './imageMapping'
+import { exteriorImages, interiorImages } from './imageMapping.js'
 
 const basePrice = 57835
 let currentPrice = basePrice
@@ -15,3 +15,5 @@ const handleScroll = () => {
 }
 
 window.addEventListener('scroll', () => requestAnimationFrame(handleScroll))
+
+
