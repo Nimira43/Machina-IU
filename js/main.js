@@ -14,6 +14,11 @@ const handleScroll = () => {
   topBar.classList.toggle('hidden-bar', !atTop)
 }
 
-window.addEventListener('scroll', () => requestAnimationFrame(handleScroll))
+const handleColourButtonClick = (click) => {
+  let button
 
+}
+
+window.addEventListener('scroll', () => requestAnimationFrame(handleScroll))
+exteriorColourSection.addEventListener('click', handleColourButtonClick)
 
