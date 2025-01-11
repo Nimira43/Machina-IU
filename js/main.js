@@ -8,8 +8,8 @@ const basePrice = 57835
 let currentPrice = basePrice
 let selectedColour = 'Stealth Grey' 
 
-const upDateTotalPrice = () => {
-
+const updateTotalPrice = () => {
+  updatePaymentBreakdown()
 }
 
 const updatePaymentBreakdown = () => {
@@ -93,12 +93,16 @@ const handleWheelButtonClick = (event) => {
 }
 
 const handlePerformanceButtonClick = () => {
-
+  updateTotalPrice()
 }
 
-const fullSelfDrivingChange => {
-  
+const fullSelfDrivingChange = () => {
+  updateTotalPrice()
 }
+
+// accessoryCheckboxes
+
+updateTotalPrice()
 
 window.addEventListener('scroll', () => requestAnimationFrame(handleScroll))
 exteriorColourSection.addEventListener('click', handleColourButtonClick)
