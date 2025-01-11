@@ -102,14 +102,20 @@ const handleWheelButtonClick = (event) => {
     selectedOptions['Enhanced Wheels'] = event.target.textContent.includes('Enhanced')
     
     updateExteriorImage()
+    updateTotalPrice()
   }
 }
 
 const handlePerformanceButtonClick = () => {
+  const isSelected = performanceBtn.classList.toggle('bg-gray-800')
+  updateTotalPrice()
+  performanceBtn.classList.toggle('text-white')
+  selectedOptions['Enhanced Performance'] = isSelected
   updateTotalPrice()
 }
 
 const fullSelfDrivingChange = () => {
+  selectedOptions[]
   updateTotalPrice()
 }
 
