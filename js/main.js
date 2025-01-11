@@ -115,11 +115,13 @@ const handlePerformanceButtonClick = () => {
 }
 
 const fullSelfDrivingChange = () => {
-  selectedOptions[]
+  selectedOptions['Self-Driving'] = fullSelfDrivingCheckbox.checked
   updateTotalPrice()
 }
 
-// accessoryCheckboxes
+accessoryCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener('change', () => updateTotalPrice)
+}) 
 
 updateTotalPrice()
 
@@ -127,4 +129,5 @@ window.addEventListener('scroll', () => requestAnimationFrame(handleScroll))
 exteriorColourSection.addEventListener('click', handleColourButtonClick)
 interiorColourSection.addEventListener('click', handleColourButtonClick)
 wheelsButtonsSection.addEventListener('click', handleWheelButtonClick)
-
+performanceBtn.addEventListener('click', handlePerformanceButtonClick)
+fullSelfDrivingCheckbox.addEventListener('change', fullSelfDrivingChange)
