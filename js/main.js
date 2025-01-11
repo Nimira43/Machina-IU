@@ -8,6 +8,14 @@ const basePrice = 57835
 let currentPrice = basePrice
 let selectedColour = 'Stealth Grey' 
 
+const upDateTotalPrice = () => {
+
+}
+
+const updatePaymentBreakdown = () => {
+
+}
+
 const handleScroll = () => {
   const atTop = window.scrollY === 0 
   topBar.classList.toggle('visible-bar', atTop)
@@ -37,6 +45,11 @@ const handleColourButtonClick = (event) => {
     }
   }
 }
+
+const updateExteriorImage = () => {
+
+}
+
 
 // Wheel Buttons
 
@@ -79,8 +92,13 @@ const handleWheelButtonClick = (event) => {
   }
 }
 
-wheelsButtonsSection.addEventListener('click', handleWheelButtonClick);
+const handlePerformanceButtonClick = () => {
 
+}
+
+const fullSelfDrivingChange => {
+  
+}
 
 window.addEventListener('scroll', () => requestAnimationFrame(handleScroll))
 exteriorColourSection.addEventListener('click', handleColourButtonClick)
