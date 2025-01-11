@@ -39,7 +39,14 @@ const updateTotalPrice = () => {
 }
 
 const updatePaymentBreakdown = () => {
-
+  const downPayment = currentPrice * 0.15
+  downPaymentElement.textContent = `
+    ${downPayment.toLocaleString()}
+  `
+  const loanTermMonths = 48
+  const interestRate = 0.075
+  const loanAmount = currentPrice - downPayment
+  const monthlyInterestRate = interestRate / 12
 }
 
 const handleScroll = () => {
