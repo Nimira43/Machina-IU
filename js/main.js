@@ -20,8 +20,21 @@ const updateTotalPrice = () => {
   if (selectedOptions['Self Driving']) {
     currentPrice += pricing['Self Driving']
   }
+  accessoryCheckboxes.forEach((checkbox) => {
+    const accessoryLabel = checkbox
+      .closest('label')
+      .querySelector('span')
+      .textContent.trim()
+    const accessoryPrice = price['Accesories'][accessoryLabel]
 
-  
+    if (checkbox.checked) {
+      currentPrice += accessoryPrice
+    }
+  })
+
+  totalPriceElement.textContent = `
+    ${currentPrice.toLocaleString()}
+  `
   updatePaymentBreakdown()
 }
 
