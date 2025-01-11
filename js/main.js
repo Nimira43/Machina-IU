@@ -98,6 +98,10 @@ const handleWheelButtonClick = (event) => {
       'selected', 
       'bg-gray-800', 'text-white', 'hover:bg-gray-900', 'hover:text-white'
     )
+
+    selectedOptions['Enhanced Wheels'] = event.target.textContent.includes('Enhanced')
+    
+    updateExteriorImage()
   }
 }
 
