@@ -9,6 +9,19 @@ let currentPrice = basePrice
 let selectedColour = 'Stealth Grey' 
 
 const updateTotalPrice = () => {
+  currentPrice = basePrice
+
+  if (selectedOptions['Enhanced Wheels']) {
+    currentPrice += pricing['Enhanced Wheels']
+  }
+  if (selectedOptions['Enhanced Performance']) {
+    currentPrice += pricing['Enhanced Performance']
+  }
+  if (selectedOptions['Self Driving']) {
+    currentPrice += pricing['Self Driving']
+  }
+
+  
   updatePaymentBreakdown()
 }
 
@@ -120,7 +133,7 @@ const fullSelfDrivingChange = () => {
 }
 
 accessoryCheckboxes.forEach((checkbox) => {
-  checkbox.addEventListener('change', () => updateTotalPrice)
+  checkbox.addEventListener('change', () => updateTotalPrice())
 }) 
 
 updateTotalPrice()
