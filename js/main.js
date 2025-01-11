@@ -47,6 +47,12 @@ const updatePaymentBreakdown = () => {
   const interestRate = 0.075
   const loanAmount = currentPrice - downPayment
   const monthlyInterestRate = interestRate / 12
+
+  const monthlyPayment = (loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTermMonths))) / (Math.pow(1 + monthlyInterestRate, loanTermMonths) - 1)
+
+  monthlyPaymentElement.textContent = `
+    £${monthlyPayment.toFixed(2).toLocaleString()}
+  `
 }
 
 const handleScroll = () => {
