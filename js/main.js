@@ -47,7 +47,16 @@ const handleColourButtonClick = (event) => {
 }
 
 const updateExteriorImage = () => {
-
+  const performanceSuffix = selectedOptions['Enhanced Wheels'] 
+    ? '-performance' 
+    : ''
+  const colourKey = selectedColour in exteriorImages 
+    ? selectedColour 
+    : 'Solid Black'
+  exteriorImage.src = exteriorImages[colourKey].replace(
+    '.jpg',
+    `${performanceSuffix}.jpg`
+  )
 }
 
 
