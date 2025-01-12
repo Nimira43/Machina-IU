@@ -1,10 +1,15 @@
-import { handleScroll } from './ui.js'
-import { exteriorImage, interiorImage, exteriorColourSection, interiorColourSection, wheelsButtonsSection, performanceBtn, fullSelfDrivingCheckbox, accessoryCheckboxes } from './variables.js'
+import { topBar, exteriorImage, interiorImage, exteriorColourSection, interiorColourSection, wheelsButtonsSection, performanceBtn, fullSelfDrivingCheckbox, accessoryCheckboxes } from './variables.js'
 import { selectedOptions } from './objects.js'
 import { exteriorImages, interiorImages } from './imageMapping.js'
 import { updateTotalPrice } from './payments.js'
 
 let selectedColour = 'Solid Black' 
+
+const handleScroll = () => {
+  const atTop = window.scrollY === 0 
+  topBar.classList.toggle('visible-bar', atTop)
+  topBar.classList.toggle('hidden-bar', !atTop)
+}
 
 const handleColourButtonClick = (event) => {
   let button
