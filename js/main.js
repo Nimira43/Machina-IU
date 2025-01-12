@@ -6,7 +6,7 @@ import { exteriorImages, interiorImages } from './imageMapping.js'
 
 const basePrice = 57835
 let currentPrice = basePrice
-let selectedColour = 'Stealth Grey' 
+let selectedColour = 'Solid Black' 
 
 const updateTotalPrice = () => {
   currentPrice = basePrice
@@ -17,15 +17,15 @@ const updateTotalPrice = () => {
   if (selectedOptions['Enhanced Performance']) {
     currentPrice += pricing['Enhanced Performance']
   }
-  if (selectedOptions['Self Driving']) {
-    currentPrice += pricing['Self Driving']
+  if (selectedOptions['Self-Driving']) {
+    currentPrice += pricing['Self-Driving']
   }
   accessoryCheckboxes.forEach((checkbox) => {
     const accessoryLabel = checkbox
       .closest('label')
       .querySelector('span')
       .textContent.trim()
-    const accessoryPrice = price['Accesories'][accessoryLabel]
+    const accessoryPrice = pricing['Accessories'][accessoryLabel]
 
     if (checkbox.checked) {
       currentPrice += accessoryPrice
@@ -33,7 +33,7 @@ const updateTotalPrice = () => {
   })
 
   totalPriceElement.textContent = `
-    ${currentPrice.toLocaleString()}
+    £${currentPrice.toLocaleString()}
   `
   updatePaymentBreakdown()
 }
@@ -41,7 +41,7 @@ const updateTotalPrice = () => {
 const updatePaymentBreakdown = () => {
   const downPayment = currentPrice * 0.15
   downPaymentElement.textContent = `
-    ${downPayment.toLocaleString()}
+    £${downPayment.toLocaleString()}
   `
   const loanTermMonths = 48
   const interestRate = 0.075
