@@ -1,59 +1,9 @@
-import { topBar, exteriorImage, interiorImage, exteriorColourSection, interiorColourSection, wheelsButtonsSection, performanceBtn, fullSelfDrivingCheckbox,totalPriceElement, downPaymentElement, monthlyPaymentElement, accessoryCheckboxes } from './variables.js'
-
-import { selectedOptions, pricing } from './objects.js'
-
+import { topBar, exteriorImage, interiorImage, exteriorColourSection, interiorColourSection, wheelsButtonsSection, performanceBtn, fullSelfDrivingCheckbox, accessoryCheckboxes } from './variables.js'
+import { selectedOptions } from './objects.js'
 import { exteriorImages, interiorImages } from './imageMapping.js'
+import { updateTotalPrice } from './payments.js'
 
-const basePrice = 57835
-let currentPrice = basePrice
 let selectedColour = 'Solid Black' 
-
-const updateTotalPrice = () => {
-  currentPrice = basePrice
-
-  if (selectedOptions['Enhanced Wheels']) {
-    currentPrice += pricing['Enhanced Wheels']
-  }
-  if (selectedOptions['Enhanced Performance']) {
-    currentPrice += pricing['Enhanced Performance']
-  }
-  if (selectedOptions['Self-Driving']) {
-    currentPrice += pricing['Self-Driving']
-  }
-  accessoryCheckboxes.forEach((checkbox) => {
-    const accessoryLabel = checkbox
-      .closest('label')
-      .querySelector('span')
-      .textContent.trim()
-    const accessoryPrice = pricing['Accessories'][accessoryLabel]
-
-    if (checkbox.checked) {
-      currentPrice += accessoryPrice
-    }
-  })
-
-  totalPriceElement.textContent = `
-    £${currentPrice.toLocaleString()}
-  `
-  updatePaymentBreakdown()
-}
-
-const updatePaymentBreakdown = () => {
-  const downPayment = currentPrice * 0.15
-  downPaymentElement.textContent = `
-    £${downPayment.toLocaleString()}
-  `
-  const loanTermMonths = 48
-  const interestRate = 0.075
-  const loanAmount = currentPrice - downPayment
-  const monthlyInterestRate = interestRate / 12
-
-  const monthlyPayment = (loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTermMonths))) / (Math.pow(1 + monthlyInterestRate, loanTermMonths) - 1)
-
-  monthlyPaymentElement.textContent = `
-    £${monthlyPayment.toFixed(2).toLocaleString()}
-  `
-}
 
 const handleScroll = () => {
   const atTop = window.scrollY === 0 
@@ -99,25 +49,6 @@ const updateExteriorImage = () => {
   )
 }
 
-
-// Wheel Buttons
-
-// Solution A
-
-// const handleWheelButtonClick = (event) => {
-//   if (event.target.tagName === 'BUTTON') {
-//     const buttons = document.querySelectorAll('#wheel-buttons button')
-//     buttons.forEach((btn) => { 
-//       btn.classList.remove('bg-gray-800') 
-//       btn.classList.remove('text-white') 
-//     })
-//     event.target.classList.add('bg-gray-800') 
-//     event.target.classList.add('text-white')
-//   }
-// }
-
-// Solution B
-
 const handleWheelButtonClick = (event) => {
   if (event.target.tagName === 'BUTTON') {
     const buttons = document.querySelectorAll('#wheel-buttons button')
@@ -140,7 +71,6 @@ const handleWheelButtonClick = (event) => {
     )
 
     selectedOptions['Enhanced Wheels'] = event.target.textContent.includes('Enhanced')
-    
     updateExteriorImage()
     updateTotalPrice()
   }
@@ -162,7 +92,6 @@ const fullSelfDrivingChange = () => {
 accessoryCheckboxes.forEach((checkbox) => {
   checkbox.addEventListener('change', () => updateTotalPrice())
 }) 
-
 updateTotalPrice()
 
 window.addEventListener('scroll', () => requestAnimationFrame(handleScroll))
